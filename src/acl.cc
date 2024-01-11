@@ -392,7 +392,7 @@ pstd::Status Acl::LoadUserFromFile(const std::string& fileName) {
   std::unique_lock wl(mutex_);
 
   std::unique_ptr<pstd::SequentialFile> sequentialFile;
-  auto status = NewSequentialFile(fileName, sequentialFile);
+  auto status = pstd::NewSequentialFile(fileName, sequentialFile);
   if (!status.ok()) {
     return status;
   }
