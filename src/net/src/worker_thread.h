@@ -18,6 +18,7 @@
 #include "net/include/net_define.h"
 #include "net/include/net_thread.h"
 #include "net/include/server_thread.h"
+#include "net/src/memoey_pool.h"
 #include "net/src/net_multiplexer.h"
 #include "net/src/dispatch_thread.h"
 namespace net {
@@ -29,7 +30,8 @@ class ConnFactory;
 
 class WorkerThread : public Thread {
  public:
-  explicit WorkerThread(ConnFactory* conn_factory, ServerThread* server_thread, int queue_limit, int cron_interval = 0);
+  explicit WorkerThread(ConnFactory* conn_factory, ServerThread* server_thread, size_t memory_pool_page_size,
+                        int queue_limit, int cron_interval = 0);
 
   ~WorkerThread() override;
 
@@ -64,6 +66,8 @@ class WorkerThread : public Thread {
   ServerThread* server_thread_ = nullptr;
   ConnFactory* conn_factory_ = nullptr;
   int cron_interval_ = 0;
+
+  MemoryPool memory_pool_;
 
   /*
    * The epoll handler
