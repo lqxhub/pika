@@ -19,7 +19,7 @@
 #include "pstd/include/pstd_string.h"
 
 #include "net/src/dispatch_thread.h"
-#include "net/src/memoey_pool.h"
+#include "net/src/memory_pool.h"
 
 class SyncMasterDB;
 class SyncSlaveDB;

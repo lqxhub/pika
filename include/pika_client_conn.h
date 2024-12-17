@@ -13,7 +13,7 @@
 #include "acl.h"
 #include "include/pika_command.h"
 #include "include/pika_define.h"
-#include "net/src/memoey_pool.h"
+#include "net/src/memory_pool.h"
 
 // TODO: stat time costing in write out data to connfd
 struct TimeStat {

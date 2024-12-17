@@ -3,8 +3,8 @@
 // LICENSE file in the root directory of this source tree. An additional grant
 // of patent rights can be found in the PATENTS file in the same directory.
 
-#ifndef PIKA_SRC_NET_SRC_MEMOEY_POOL_H
-#define PIKA_SRC_NET_SRC_MEMOEY_POOL_H
+#ifndef PIKA_SRC_NET_SRC_MEMORY_POOL_H
+#define PIKA_SRC_NET_SRC_MEMORY_POOL_H
 
 #include <array>
 #include <atomic>
@@ -115,4 +115,4 @@ class MemoryPool {
 
 }  // namespace net
 
-#endif  // PIKA_SRC_NET_SRC_MEMOEY_POOL_H
+#endif  // PIKA_SRC_NET_SRC_MEMORY_POOL_H

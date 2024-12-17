@@ -17,7 +17,7 @@
 
 #include "net/include/net_define.h"
 #include "net/include/server_thread.h"
-#include "net/src/memoey_pool.h"
+#include "net/src/memory_pool.h"
 #include "net/src/net_multiplexer.h"
 #include "pstd/include/noncopyable.h"
 #include "pstd/include/testutil.h"
