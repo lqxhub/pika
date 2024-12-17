@@ -93,13 +93,13 @@ class MemoryPool {
     }
 
     auto index = *page;
-    bits_ &= ~(1ull << index);
+    bits_.fetch_and(~(1ull << index));
   }
 
  private:
   template <typename T, typename... Args>
   T *AllocateExtend(Args &&...args) {
-    auto newPage = std::malloc(sizeof(T) + pageOffset_);
+    auto newPage = std::aligned_alloc(alignof(T), sizeof(T) + pageOffset_);
     auto page = reinterpret_cast<uint8_t *>(newPage);
     *page = extendFlag_;  // Set the page head to 0xFF
     return new (++page) T(std::forward<Args>(args)...);

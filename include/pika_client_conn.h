@@ -116,7 +116,7 @@ class PikaClientConn : public net::RedisConn {
 
   std::shared_ptr<TimeStat> time_stat_;
 
-  void SetMemoryPool(net::MemoryPool *memory_pool) override{ memory_pool_ = memory_pool; }
+  void SetMemoryPool(net::MemoryPool* memory_pool) override { memory_pool_ = memory_pool; }
 
  private:
   net::ServerThread* const server_thread_;
@@ -131,7 +131,7 @@ class PikaClientConn : public net::RedisConn {
   bool authenticated_ = false;
   std::shared_ptr<User> user_;
 
-  net::MemoryPool *memory_pool_;
+  net::MemoryPool *memory_pool_= nullptr;
 
   std::variant<std::shared_ptr<Cmd>, Cmd*> DoCmd(const PikaCmdArgsType& argv, const std::string& opt,
                              const std::shared_ptr<std::string>& resp_ptr, bool cache_miss_in_rtc);
